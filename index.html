@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css" integrity="sha512-t7Few9xlddEmgd3oKZQahkNI4dS6l80+eGEzFQiqtyVYdvcSG2D3Iub77R20BdotfRPA9caaRkg1tyaJiPmO0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="libs/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header class="d-flex position-fixed justify-content-center p-2">
+        <div class="nav-grid rounded-5 bg-light position-relative">
+          <a class="navegate" id="2" tabindex="0" href="#inicio">INÍCIO</a>
+          <a class="navegate" id="26" tabindex="0" href="#sobre">SOBRE</a>
+          <a class="navegate" id="50" tabindex="0">SERVIÇOS</a>
+          <a class="navegate" id="75" tabindex="0">CONTATO</a>
+          <div class="focused"></div>
+        </div>
+      </header>
+  <section id="inicio" class="d-flex">
+    <div class="wrapper d-flex">
+      
+      <div class="home d-flex">
+        <div class="qualifications position-absolute">
+              <p class="m-2">Qualificação</p>
+              <div class="stars m-0 d-flex gap-3">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+            </div>
+        <aside class="profile-aside d-flex rounded-5">
+          <div class="position-relative">
+            <img class="profileapper user" src="/assets/images/paulo.png"/>
+            <div class="img-container rounded-5"></div>
+            <div class="position-absolute bottom-0 d-flex justify-content-between text-light z-1 p-3 w-100 align-items-center">
+              <span class="">@PauloAguiar</span>
+              <a href="https://www.instagram.com/pauloaguiardearruda/" class="rounded-4 bg-light p-2 text-black text-decoration-none fs-6 fs-md-4">+ adicionar</a>
+            </div>
+          </div>
+          <div>
+          </div>
+        </aside>
+        
+        <div class="d-flex flex-column justify-content-end">
+          <div class="title">
+            <img class="animate img-fluid" src="assets/fonts/portfolio.png"/>
+          </div>
+          <div class="more">
+            <div class="more-wrapper">
+              <div class="music-player d-flex flex-column align-items-center position-relative p-3 mb-2">
+                <p class="text-black">Music title</p>
+                <div class="progress-bar"><div class="fill-bar"></div></div>
+                <div class="control d-flex">
+                  <button><i class="bi bi-skip-start-fill"></i></button>
+                  <button onclick="playSong()"><i id="icon" class="bi bi-play-fill"></i></button>
+                  <button><i class="bi bi-skip-end-fill"></i></button>
+                </div>
+              </div>
+              <div class="socials gap-2">
+                <div>
+                  <a><i class="bi bi-whatsapp"></i></a>
+                </div>
+                <div>
+                  <a href="https://www.instagram.com/pauloaguiardearruda/"><i class="bi bi-instagram"></i></a>
+                </div>
+                <div>
+                  <a><i class="bi bi-behance"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="more-photo" id="photo-1">
+              <img src="assets/images/paulo-2.jpg"/>
+            </div>
+            <div class="more-photo" id="photo-2">
+              <img src="assets/images/paulo-3.png"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="sobre">
+    <div class="wrap-sobre d-flex">
+      <div class="m-5">
+        <h1 class="fw-bold mb-4"><span class="text-light">#</span>Sobre mim</h1>
+        <p class="fs-5 mb-5">Meu nome é <b>PAULO RICARDO</b>, tenho 21 anos, trabalho com arte gráfica a 4 anos, já fiz camisas para várias coisas, desde; igrejas à ligas acadêmicas, já produzi uma histórias em quadrinhos em um projeto inovador pelo IFRO. Hoje, ainda, estou graduando em odontologia pela faculdade FIMCA.</p>
+        <div class="skills mt-5"><p class="m-0"><i>Software skills</i></p>
+          <div>
+            <img src=""/>
+            <img src=""/>
+            <img src=""/>
+          </div>
+        </div>
+      </div>
+      <aside class="odonto-aside"><img class="w-100" src="/assets/images/odonto.png"/></aside>
+    </div>
+  </section>
+    <script src="libs/bootstrap.bundle.min.js"></script>
+    <script src="
+https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js
+"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
