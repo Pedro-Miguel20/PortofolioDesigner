@@ -1,8 +1,23 @@
-ScrollReveal().reveal('header', { duration: 2000 });
-ScrollReveal().reveal('.more-photo', { duration: 2000 });
-ScrollReveal().reveal('.more-wrapper', { duration: 2000 });
-ScrollReveal().reveal('.img-container', { duration: 2000 });
+ScrollReveal().reveal('header, .more-photo, .more-wrapper, control, .img-container, .presentation, .odonto-img', {
+  duration: 2000,
+  reset: true,      // stagger each element by 200ms
+});
 
+ScrollReveal().reveal('.animate, .user, .skills, .socials', {
+  duration: 1000,
+  reset: true,
+  origin: 'bottom',   // animation comes from bottom
+  distance: '50px',
+  interval: 200       // stagger each element by 200ms
+});
+
+ScrollReveal().reveal('.title-sobre, .qualifications', {
+  duration: 1000,
+  reset: true,
+  origin: 'left',   // animation comes from bottom
+  distance: '100px',
+  interval: 200       // stagger each element by 200ms
+});
 
 function updateHeaderZIndex(){
     var horizontalScroll = window.scrollY;
@@ -16,7 +31,11 @@ function updateHeaderZIndex(){
 
     if(horizontalScroll > window.innerHeight - 200){
       navegateHeader(25);
+      document.querySelector('header').style.boxShadow="none";
+    } else {
+      document.querySelector('header').style.boxShadow="#909090 0px 5px 10px 0px";
     }
+    
 };
 
 window.addEventListener('load', () => {
@@ -64,3 +83,36 @@ var navegates = document.querySelectorAll('.navegate');
 function navegateHeader(position){
         document.querySelector('.focused').style.left = position + "%";
 }
+
+const odontoAside = document.querySelector('.odonto-aside');
+const odontoImg = document.querySelector('.odonto-aside img');
+const sobreText = document.querySelector('.sobre-text');
+
+function ajustarOdonto() {
+  const altura = sobreText.offsetHeight;
+  odontoAside.style.height = altura + 'px';
+  odontoAside.style.width = altura + 'px'; // mantém 1:1
+  odontoImg.style.height = altura + 'px';
+  odontoImg.style.width = altura + 'px';
+}
+
+// Ajuste inicial e ao redimensionar a tela
+window.addEventListener('load', ajustarOdonto);
+window.addEventListener('resize', ajustarOdonto);
+
+// Ajusta automaticamente se o texto mudar de altura
+const observer = new ResizeObserver(ajustarOdonto);
+observer.observe(sobreText);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const socials = document.querySelector(".socials");
+  const aside = document.querySelector("aside");
+  const music = document.querySelector(".music-player");
+
+  if (window.innerWidth < 460 && socials && aside) {
+    // move o .socials para antes do <aside>
+    aside.insertAdjacentElement("beforebegin", socials);
+  } else {
+    music.insertAdjacentElement("afterend", socials);
+  }
+});

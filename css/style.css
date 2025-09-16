@@ -5,10 +5,6 @@
     font-family: "Poppins", sans-serif;
 }
 
-html{
-  scroll-padding-top: 130px;
-}
-
 #inicio{
   background-color: ghostwhite;
   border-radius: 0px 0px 70px 70px;
@@ -112,7 +108,7 @@ header{
   background-color: rgb(215 215 215 / 55%);
   z-index: 2;
   top: 50%;
-  left: 55px;
+  left: 5%;
   padding: 10px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   border-radius: 15px;
@@ -186,17 +182,13 @@ header{
   position: absolute;
 }
 
-@keyframes fadeInUp {
-  0% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0%);
-    opacity: 1;
-  }
+.animate-side{
+  animation: fadeInLeft 1s;
 }
 
+.animate-side-right{
+  animation: fadeInRight 1s;
+}
 
 @keyframes mymove {
   from {width: 0%;}
@@ -222,7 +214,11 @@ header{
 
 .socials{
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.socials div a{
+  color: #242424;
 }
 
 .socials > div{
@@ -242,30 +238,124 @@ header{
 }
 
 #sobre{
-  height: 130vh;
+  margin: 6rem 6rem;
+  scroll-margin-top: 
+  70px; scroll-behavior: smooth;
 }
 
-.wrap-sobre{
-  margin: 6rem 2rem;
+/* RESET E BASE */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.skills{
-  background-color: #2b2b2b;
-  border-radius: 32px;
-  color: lightgray;
+.wrap-sobre {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start; /* altura determinada pelo texto */
+}
+
+.sobre-text {
+  flex: 1;
+  padding-right: 20px;
+  font-size: 20px;
+}
+
+.title-sobre {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 40px;
+}
+
+.presentation {
+  line-height: 1.5;
+}
+
+.skills {
+  margin-top: 2rem;
+}
+
+.softwares {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.odonto-aside {
+  position: relative;
+  flex-shrink: 0; /* não encolhe */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.odonto-aside .seta {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background-color: #6c757d;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
   display: flex;
   align-items: center;
-  padding: 1.5rem;
+  gap: 0.5rem;
   font-weight: bold;
+  left: 48%;
+  top: 10%;
 }
 
-@media only screen and (max-width: 1200px) {
+.odonto-aside img.odonto-img {
+  display: block;
+  width: auto; /* largura ajustada pelo JS */
+  height: 100%; /* altura ajustada pelo JS */
+  object-fit: cover;
+  border-radius: 32px;
+  border: solid ghostwhite 10px; /* preenche o quadrado */
+}
+
+.softwares{
+  height: 45px;
+}
+
+.skills{ 
+  background-color: #2b2b2b; 
+  border-radius: 32px; 
+  color: lightgray; 
+  display: flex; 
+  align-items: center; 
+  padding: 1rem; 
+  font-weight: bold;
+  justify-content: space-around;
+}
+
+.softwares img{
+  height: 100%;
+}
+
+.seta::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* posiciona logo abaixo do div */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #6c757d;/* mesma cor de fundo: bg-secondary */
+}
+
+
+
+@media only screen and (max-width: 1500px) {
   .title img {
     height: auto;
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   #photo-2 {
     display: none;
   }
@@ -274,12 +364,42 @@ header{
   }
 }
 
-@media (max-width: 950px) {
-  #photo-1 {
+@media (max-width: 1200px){
+   #photo-1{
     display: none;
   }
   .more{
     grid-template-columns: repeat(1, 1fr); 
+  }
+}
+
+@media (max-width: 1050px) {
+  .title img {
+    height: auto;
+  }
+}
+
+@media (max-width: 950px) {
+
+
+  .wrap-sobre{
+    display: flex;
+    flex-direction: column;
+    margin: 6rem 0rem;
+    align-items: center;
+  }
+  .presentation{
+    white-space: break-spaces;
+    text-align: justify;
+  }
+
+  #sobre{
+    margin: 6rem 2rem;
+  }
+  
+  .odonto-aside, .odonto-img{
+    width: 80% !important;
+    height: 80% !important;
   }
 }
 
@@ -291,7 +411,7 @@ header{
     flex-direction: column-reverse;
   }
   .profile-aside{
-    height: auto;
+    height: 100%;
   }
 }
 
@@ -306,5 +426,32 @@ header{
     margin: 0rem 0rem;
     width: calc(100%);
     border-radius:unset !important;
+  }
+
+  .odonto-aside, .odonto-img{
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .socials{
+    display: flex;
+  }
+
+  .socials div{
+    padding: 7px;
+    border-radius: 15px;
+  }
+
+  .socials div a i{
+    font-size: 30px;
+  }
+
+  .sobre-text{
+    padding: 0;
+    font-size: 15px;
+  }
+
+  .profile-aside{
+    height: fit-content !important;
   }
 }

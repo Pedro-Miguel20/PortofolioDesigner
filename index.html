@@ -12,7 +12,8 @@
     <header class="d-flex position-fixed justify-content-center p-2">
         <div class="nav-grid rounded-5 bg-light position-relative">
           <a class="navegate" id="2" tabindex="0" href="#inicio">INÍCIO</a>
-          <a class="navegate" id="26" tabindex="0" href="#sobre">SOBRE</a>
+          <a class="navegate" id="26" tabindex="0" href="#sobre" style="
+  scroll-padding-top: 100px;">SOBRE</a>
           <a class="navegate" id="50" tabindex="0">SERVIÇOS</a>
           <a class="navegate" id="75" tabindex="0">CONTATO</a>
           <div class="focused"></div>
@@ -84,21 +85,30 @@
     </div>
   </section>
   <section id="sobre">
-    <div class="wrap-sobre d-flex">
-      <div class="m-5">
-        <h1 class="fw-bold mb-4"><span class="text-light">#</span>Sobre mim</h1>
-        <p class="fs-5 mb-5">Meu nome é <b>PAULO RICARDO</b>, tenho 21 anos, trabalho com arte gráfica a 4 anos, já fiz camisas para várias coisas, desde; igrejas à ligas acadêmicas, já produzi uma histórias em quadrinhos em um projeto inovador pelo IFRO. Hoje, ainda, estou graduando em odontologia pela faculdade FIMCA.</p>
-        <div class="skills mt-5"><p class="m-0"><i>Software skills</i></p>
-          <div>
-            <img src=""/>
-            <img src=""/>
-            <img src=""/>
-          </div>
+  <div class="wrap-sobre">
+    <div class="sobre-text">
+      <h1 class="title-sobre m-3"><span class="text-light">#</span>Sobre mim</h1>
+      <p class="presentation">
+        Meu nome é <b>PAULO RICARDO</b>, tenho 21 anos, trabalho com arte gráfica a 4 anos, já fiz camisas para várias coisas, desde; igrejas à ligas acadêmicas, já produzi uma histórias em quadrinhos em um projeto inovador pelo IFRO. Hoje, ainda, estou graduando em odontologia pela faculdade FIMCA.
+      </p>
+      <div class="skills mt-5">
+        <p class="m-0"><i>Software skills</i></p>
+        <div class="softwares m-0">
+          <img src="assets/images/krita.svg"/>
+          <img src="assets/images/photoshop.svg"/>
+          <img src="assets/images/canva.svg"/>
         </div>
       </div>
-      <aside class="odonto-aside"><img class="w-100" src="/assets/images/odonto.png"/></aside>
     </div>
-  </section>
+    <aside class="odonto-aside">
+      <div class="seta">
+        <i class="bi bi-instagram"></i>
+        <p class="m-0">EU</p>
+      </div>
+      <img class="odonto-img" src="/assets/images/odonto.jpeg"/>
+    </aside>
+  </div>
+</section>
     <script src="libs/bootstrap.bundle.min.js"></script>
     <script src="
 https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js
