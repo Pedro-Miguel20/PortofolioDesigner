@@ -54,7 +54,7 @@ window.addEventListener('scroll', () => {
 });
 
 
-const audioElement = new Audio("/assets/audio/audio.mp3");
+const audioElement = new Audio("assets/audio/audio.mp3");
 
 const icon = document.getElementById("icon");
 const fillBar = document.querySelector(".fill-bar");
