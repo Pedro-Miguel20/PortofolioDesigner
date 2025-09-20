@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+    <script src="
+https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js
+"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css" integrity="sha512-t7Few9xlddEmgd3oKZQahkNI4dS6l80+eGEzFQiqtyVYdvcSG2D3Iub77R20BdotfRPA9caaRkg1tyaJiPmO0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="libs/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css">
@@ -14,7 +18,7 @@
           <a class="navegate" id="2" tabindex="0" href="#inicio">INÍCIO</a>
           <a class="navegate" id="26" tabindex="0" href="#sobre" style="
   scroll-padding-top: 100px;">SOBRE</a>
-          <a class="navegate" id="50" tabindex="0">SERVIÇOS</a>
+          <a class="navegate" id="50" tabindex="0" href="#servicos">SERVIÇOS</a>
           <a class="navegate" id="75" tabindex="0">CONTATO</a>
           <div class="focused"></div>
         </div>
@@ -85,34 +89,60 @@
     </div>
   </section>
   <section id="sobre">
-  <div class="wrap-sobre">
-    <div class="sobre-text">
-      <h1 class="title-sobre m-3"><span class="text-light">#</span>Sobre mim</h1>
-      <p class="presentation">
-        Meu nome é <b>PAULO RICARDO</b>, tenho 21 anos, trabalho com arte gráfica a 4 anos, já fiz camisas para várias coisas, desde; igrejas à ligas acadêmicas, já produzi uma histórias em quadrinhos em um projeto inovador pelo IFRO. Hoje, ainda, estou graduando em odontologia pela faculdade FIMCA.
-      </p>
-      <div class="skills mt-5">
-        <p class="m-0"><i>Software skills</i></p>
-        <div class="softwares m-0">
-          <img src="assets/images/krita.svg"/>
-          <img src="assets/images/photoshop.svg"/>
-          <img src="assets/images/canva.svg"/>
+    <div class="wrap-sobre">
+      <div class="sobre-text">
+        <h1 class="title-sobre m-3"><span class="text-light">#</span>Sobre mim</h1>
+        <p class="presentation">
+          Meu nome é <b>PAULO RICARDO</b>, tenho 21 anos, trabalho com arte gráfica a 4 anos, já fiz camisas para várias coisas, desde; igrejas à ligas acadêmicas, já produzi uma histórias em quadrinhos em um projeto inovador pelo IFRO. Hoje, ainda, estou graduando em odontologia pela faculdade FIMCA.
+        </p>
+        <div class="skills mt-5">
+          <p class="m-0"><i>Software skills</i></p>
+          <div class="softwares m-0">
+            <img src="assets/images/krita.svg"/>
+            <img src="assets/images/photoshop.svg"/>
+            <img src="assets/images/canva.svg"/>
+          </div>
         </div>
       </div>
+      <aside class="odonto-aside">
+        <div class="seta">
+          <i class="bi bi-instagram"></i>
+          <p class="m-0">EU</p>
+        </div>
+        <img class="odonto-img" src="/assets/images/odonto.jpeg"/>
+      </aside>
     </div>
-    <aside class="odonto-aside">
-      <div class="seta">
-        <i class="bi bi-instagram"></i>
-        <p class="m-0">EU</p>
+  </section>
+  <section id="servicos">
+    <div class="servicos-wrapper">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#ilustracoes" type="button"><i class="ti ti-pencil"></i><span class="p-2 w-100">ilustrações</span></button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#camisas" type="button"><i class="ti ti-shirt"></i><span class="p-2 w-100">camisas</span></button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#logos" type="button"><i class="ti ti-tag"></i><span class="p-2 w-100">logos</span></button>
+        </li>
+      </ul>
+
+      <!-- Conteúdo das Tabs -->
+      <div class="tab-content w-100 mt-3">
+        <div class="tab-pane fade show active" id="ilustracoes"><div class="content"></div></div>
+        <div class="tab-pane fade" id="camisas"><div class="content"></div></div>
+        <div class="tab-pane fade" id="logos"><div class="content"></div></div>
       </div>
-      <img class="odonto-img" src="/assets/images/odonto.jpeg"/>
-    </aside>
-  </div>
-</section>
-    <script src="libs/bootstrap.bundle.min.js"></script>
-    <script src="
-https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js
-"></script>
-    <script src="/js/main.js"></script>
+    </div>
+  </section>
+  <section id="feedback">
+    <div class="feedback-wrapper">
+      <div class="work-feedback mt-0 w-100">
+          <p class="m-0"><i>Feedback</i></p>
+      </div>
+    </div>
+  </section>
+  <script src="libs/bootstrap.bundle.min.js"></script>
+  <script src="/js/main.js"></script>
   </body>
 </html>
