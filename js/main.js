@@ -54,7 +54,7 @@ window.addEventListener('scroll', () => {
 });
 
 
-const audioElement = new Audio("/assets/audio/audio.mp3");
+const audioElement = new Audio("assets/audio/audio.mp3");
 
 const icon = document.getElementById("icon");
 const fillBar = document.querySelector(".fill-bar");
@@ -126,14 +126,14 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const dados = {
     ilustracoes: [
-      "/assets/images/trabalhos/ilustracao-1.jpg",
-      "/assets/images/trabalhos/ilustracao-2.jpg",
-      "/assets/images/trabalhos/ilustracao-3.jpg",
+      "assets/images/trabalhos/ilustracao-1.jpg",
+      "assets/images/trabalhos/ilustracao-2.jpg",
+      "assets/images/trabalhos/ilustracao-3.jpg",
       "https://placekitten.com/603/300",
       "https://placekitten.com/604/300"
     ],
     camisas: [
-      "/assets/images/trabalhos/camisa-1.png",
+      "assets/images/trabalhos/camisa-1.png",
       "https://picsum.photos/600/300?random=2",
       "https://picsum.photos/600/300?random=3",
       "https://picsum.photos/600/300?random=4"
