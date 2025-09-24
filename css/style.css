@@ -121,8 +121,6 @@ header{
   padding: 0px 20px 0px;
   max-width: 100%;
   overflow: hidden;
-  display: flex;
-  align-items: stretch;
   height: 100%;
 }
 .title img{
@@ -240,12 +238,12 @@ header{
 #sobre{
   margin: 6rem 6rem;
   scroll-margin-top: 
-  70px; scroll-behavior: smooth;
+  100px; scroll-behavior: smooth;
 }
 
 #servicos{
   scroll-margin-top: 
-  70px; scroll-behavior: smooth;
+  100px; scroll-behavior: smooth;
 }
 
 /* RESET E BASE */
@@ -428,13 +426,6 @@ html, body {
   margin-top: 3rem;
 }
 
-
-@media only screen and (max-width: 1500px) {
-  .title img {
-    height: auto;
-  }
-}
-
 @media (max-width: 1400px) {
   #photo-2 {
     display: none;
@@ -445,12 +436,6 @@ html, body {
 }
 
 @media (max-width: 1200px){
-   #photo-1{
-    display: none;
-  }
-  .more{
-    grid-template-columns: repeat(1, 1fr); 
-  }
 
   .wrap-sobre{
     display: flex;
@@ -468,6 +453,12 @@ html, body {
 
 @media (max-width: 950px) {
 
+  #photo-1{
+    display: none;
+  }
+  .more{
+    grid-template-columns: repeat(1, 1fr); 
+  }
   .presentation{
     white-space: break-spaces;
     text-align: justify;
@@ -484,14 +475,30 @@ html, body {
 }
 
 @media (max-width: 770px) {
-  .more {
+  .home{
+    margin-top: 30px;
+    height: auto;
+    align-items: end;
+    justify-content: center;
+  }
+
+  .control button i, .socials div a i {
+     font-size: clamp(1.6rem, 3.2vw, 3rem) !important;
+  }
+  #photo-2 {
     display: none;
   }
-  .home{
-    flex-direction: column-reverse;
+  .more{
+    grid-template-columns: repeat(1, 1fr); 
   }
+
   .profile-aside{
     height: 100%;
+    flex-shrink: unset;
+  }
+
+  .profile-aside, .more-container{
+    flex-basis: 49%;
   }
 
   .servicos-wrapper{
@@ -505,7 +512,7 @@ html, body {
 
   .content{
     display: grid;
-      grid-template-columns: repeat(2, auto);
+      grid-template-columns: repeat(2, 2fr);
       border-radius: 14px;
   }
 
@@ -515,16 +522,35 @@ html, body {
     object-fit: cover;
     margin: 0;
   }
-
   
-}
-
-@media (max-width: 460px){
-  
-  .wrapper{
+    .wrapper{
     margin: 2.5rem 2rem;
     height: auto;
     flex-direction: column;
+  }
+
+    header{
+    margin: 0rem 0rem;
+    width: calc(100%);
+    border-radius:unset !important;
+  }
+
+  #inicio{
+    display: block !important;
+  }
+}
+
+@media (max-width: 500px){
+  .more{
+    display: none;
+  }
+  .more-wrapper{
+    display: none;
+  }
+
+  .home{
+    flex-direction: column-reverse;
+    margin-top: 0;
   }
 
   header{
@@ -540,6 +566,8 @@ html, body {
 
   .socials{
     display: flex;
+    margin-bottom: 30px;
+    width: 100%;
   }
 
   .socials div{
@@ -576,5 +604,9 @@ html, body {
   }
   .servicos-wrapper{
     margin: 10px;
+  }
+
+  .profile-aside, .more-container{
+    flex-basis: unset;
   }
 }

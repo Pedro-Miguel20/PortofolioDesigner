@@ -19,6 +19,19 @@ ScrollReveal().reveal('.title-sobre, .qualifications, .nav-tabs', {
   interval: 200       // stagger each element by 200ms
 });
 
+let lastWidth = window.innerWidth;
+
+window.addEventListener('resize', function () {
+  "use strict";
+  let newWidth = window.innerWidth;
+
+  if (newWidth !== lastWidth) {
+    window.location.reload();
+    lastWidth = newWidth;
+  }
+});
+
+
 function updateHeaderZIndex(){
 
     var horizontalScroll = window.scrollY;
@@ -31,17 +44,27 @@ function updateHeaderZIndex(){
         document.querySelector('header').style.zIndex = '0';
     }
 
-    if(horizontalScroll > window.innerHeight){
+    
+
+    var inicio = document.getElementById('inicio').offsetHeight;
+    var sobre = document.getElementById('sobre').offsetHeight;
+    var servicos = document.getElementById('servicos').offsetHeight;
+
+    if(horizontalScroll > inicio){
       navegateHeader(25);
       document.querySelector('header').style.boxShadow="none";
     } else {
       document.querySelector('header').style.boxShadow="#909090 0px 5px 10px 0px";
     }
-    if(horizontalScroll > 1.5*window.innerHeight){
+    if(horizontalScroll > inicio + sobre){
       navegateHeader(50);
       document.querySelector('header').style.boxShadow="none";
     }
     
+    if(horizontalScroll > inicio + sobre + servicos){
+      navegateHeader(75);
+      document.querySelector('header').style.boxShadow="none";
+    }
 };
 
 window.addEventListener('load', () => {
@@ -100,6 +123,7 @@ function ajustarOdonto() {
   odontoAside.style.width = altura + 'px'; // mantém 1:1
   odontoImg.style.height = altura + 'px';
   odontoImg.style.width = altura + 'px';
+  window.relpad
 }
 
 // Ajuste inicial e ao redimensionar a tela
@@ -115,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const aside = document.querySelector("aside");
   const music = document.querySelector(".music-player");
 
-  if (window.innerWidth < 460 && socials && aside) {
+  if (window.innerWidth < 500 && socials && aside) {
     // move o .socials para antes do <aside>
     aside.insertAdjacentElement("beforebegin", socials);
   } else {
@@ -129,11 +153,11 @@ document.addEventListener("DOMContentLoaded", () => {
       "assets/images/trabalhos/ilustracao-1.jpg",
       "assets/images/trabalhos/ilustracao-2.jpg",
       "assets/images/trabalhos/ilustracao-3.jpg",
-      "https://placekitten.com/603/300",
+      "assets/images/trabalhos/ilustracao-4.jpg",
       "https://placekitten.com/604/300"
     ],
     camisas: [
-      "assets/images/trabalhos/camisa-1.png",
+      "aassets/images/trabalhos/camisa-1.png",
       "https://picsum.photos/600/300?random=2",
       "https://picsum.photos/600/300?random=3",
       "https://picsum.photos/600/300?random=4"
