@@ -1,6 +1,6 @@
-ScrollReveal().reveal('header, .more-photo, .more-wrapper, control, .img-container, .presentation, .odonto-img, .tab-pane', {
+ScrollReveal().reveal('header, .more-photo, .more-wrapper, control, .img-container, .presentation, .odonto-img, .tab-pane,.carousel', {
   duration: 2000,
-  reset: true,      // stagger each element by 200ms
+  reset: true,// stagger each element by 200ms
 });
 
 ScrollReveal().reveal('.animate, .user, .skills, .socials', {
@@ -11,7 +11,7 @@ ScrollReveal().reveal('.animate, .user, .skills, .socials', {
   interval: 200       // stagger each element by 200ms
 });
 
-ScrollReveal().reveal('.title-sobre, .qualifications, .nav-tabs', {
+ScrollReveal().reveal('.title-sobre, .qualifications, .nav-tabs, .work-feedback', {
   duration: 1000,
   reset: true,
   origin: 'left',   // animation comes from bottom
@@ -61,9 +61,17 @@ function updateHeaderZIndex(){
       document.querySelector('header').style.boxShadow="none";
     }
     
-    if(horizontalScroll > inicio + sobre + servicos){
+    if(horizontalScroll > inicio + sobre + servicos+100){
       navegateHeader(75);
       document.querySelector('header').style.boxShadow="none";
+      document.querySelector('header').style.backgroundColor="#2b2b2b";
+      document.querySelector('.focused').style.backgroundColor="#2b2b2b";
+      document.getElementById('75').style.color="ghostwhite";
+      document.querySelector('header').style.transition=".5s";
+    }else{
+      document.querySelector('header').style.backgroundColor="#a8c4c3";
+      document.querySelector('.focused').style.backgroundColor="#a8c4c3";
+      document.getElementById('75').style.color="#2b2b2b";
     }
 };
 
@@ -179,6 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     dados[categoria].forEach(src => {
       const img = document.createElement("img");
+      img.classList ="bigger-img";
       img.src = src;
       img.alt = categoria;
       img.style.width = "100%";   // provisório, você ajusta no CSS
@@ -188,3 +197,93 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
+const track = document.querySelector(".carousel-track");
+const cards = document.querySelectorAll(".card");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+
+let index = 2; // começa no meio
+updateCarousel();
+
+function updateCarousel() {
+
+
+  const cardWidth = cards[0].offsetWidth + 30; // largura + margin
+  const offset =
+    -(index * cardWidth) +
+    (track.parentElement.offsetWidth / 2 - cards[0].offsetWidth / 2 - 14.5);
+
+  track.style.transform = `translateX(${offset}px)`;
+
+  // ativa/desativa destaque
+  cards.forEach((card, i) => {
+    card.classList.toggle("active", i === index);
+  });
+}
+
+// Navegação por botões
+nextBtn.addEventListener("click", () => {
+  index = (index + 1) % cards.length; // loop infinito
+  updateCarousel();
+});
+
+prevBtn.addEventListener("click", () => {
+  index = (index - 1 + cards.length) % cards.length;
+  updateCarousel();
+});
+
+// --- Swipe no celular ---
+let startX = 0;
+let endX = 0;
+
+track.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
+
+track.addEventListener("touchmove", (e) => {
+  endX = e.touches[0].clientX;
+});
+
+track.addEventListener("touchend", () => {
+  let diff = endX - startX;
+
+  if (Math.abs(diff) > 50) { // só conta se for um arrasto razoável
+    if (diff < 0) {
+      // deslizou para a esquerda → próximo
+      index = (index + 1) % cards.length;
+    } else {
+      // deslizou para a direita → anterior
+      index = (index - 1 + cards.length) % cards.length;
+    }
+    updateCarousel();
+  }
+  startX = 0;
+  endX = 0;
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const bigger = document.querySelectorAll('.bigger-img');
+  const myDiv = document.querySelector('.container-bigger-img');
+  const closeBtn = document.querySelector('.out-container');
+  const showImg = document.querySelector('.show-img');
+
+  bigger.forEach(img => {
+    img.addEventListener('click', () => {
+      showImg.src = img.src;
+      myDiv.style.display = 'flex';
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    myDiv.style.display = 'none';
+    showImg.src = '';
+  });
+
+  myDiv.addEventListener('click', (e) => {
+    if (e.target === myDiv) {
+      myDiv.style.display = 'none';
+      showImg.src = '';
+    }
+  });
+});
