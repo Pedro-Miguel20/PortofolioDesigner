@@ -31,7 +31,6 @@ window.addEventListener('resize', function () {
   }
 });
 
-
 function updateHeaderZIndex(){
 
     var horizontalScroll = window.scrollY;
